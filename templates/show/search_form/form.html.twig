@@ -1,0 +1,23 @@
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<div class="example-wrapper">
+    Вернуться на главную страницу - <a href="{{ path('show') }}">Главная страница</a>
+    <form action="?" method="get">
+        <div class="form-group">
+            <div class="alert-danger text-center">Начало периода</div>
+            <label for="from_date">Дата(день-месяц-год):</label>
+            <input type="date" name="from_date" value="{% if params['from_date'] is defined %}{{params['from_date']}}{% endif %}">
+            <label for="from_time">Время(час-минута):</label>
+            <input type="time" name="from_time" value="{% if params['from_time'] is defined %}{{ params['from_time'] }}{% endif %}">
+        </div>
+        <div class="form-group">
+            <div class="alert-danger text-center">Конец периода</div>
+            <label for="to_date">Дата(день-месяц-год):</label>
+            <input type="date" name="to_date" value="{% if params['to_date'] is defined %}{{ params['to_date'] }}{% endif %}">
+            <label for="to_time">Время(час-минута):</label>
+            <input type="time" name="to_time" value="{% if params['to_time'] is defined %}{{ params['to_time'] }}{% endif %}">
+        </div>
+        <input type="submit" value="Найти">
+    </form>
